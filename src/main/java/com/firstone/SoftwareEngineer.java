@@ -1,9 +1,6 @@
 package com.firstone;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
@@ -16,13 +13,17 @@ public class SoftwareEngineer {
     private String name;
     private String techStack;
 
+    @Column(columnDefinition = "TEXT")
+    private String learningPathRecommendation;
+
     public SoftwareEngineer() {
     }
 
-    public SoftwareEngineer(Integer id, String name, String techStack) {
+    public SoftwareEngineer(Integer id, String name, String techStack, String learningPathRecommendation) {
         this.id = id;
         this.name = name;
         this.techStack = techStack;
+        this.learningPathRecommendation = learningPathRecommendation;
     }
 
     public Integer getId() {
@@ -45,19 +46,27 @@ public class SoftwareEngineer {
         return techStack;
     }
 
+    public String getLearningPathRecommendation() {
+        return learningPathRecommendation;
+    }
+
     public void setTechStack(String techStack) {
         this.techStack = techStack;
+    }
+
+    public void setLearningPathRecommendation(String learningPathRecommendation) {
+        this.learningPathRecommendation = learningPathRecommendation;
     }
 
     @Override
     public boolean equals(Object o) {
         if (o == null || getClass() != o.getClass()) return false;
         SoftwareEngineer that = (SoftwareEngineer) o;
-        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getTechStack(), that.getTechStack());
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getName(), that.getName()) && Objects.equals(getTechStack(), that.getTechStack()) && Objects.equals(getLearningPathRecommendation(), that.getLearningPathRecommendation());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getName(), getTechStack());
+        return Objects.hash(getId(), getName(), getTechStack(), getLearningPathRecommendation());
     }
 }

@@ -7,10 +7,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 @SpringBootApplication
 @RestController
-public class SpringAiApplication {
+public class AIApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringAiApplication.class, args);
+        SpringApplication.run(AIApplication.class, args);
     }
 
     @GetMapping
